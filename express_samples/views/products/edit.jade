@@ -1,0 +1,5 @@
+h1='Editing ' + product.name
+form(action='/products/' + product.id, method='POST')
+  input(type='hidden', name='_method', value='PUT')
+  div!= partial('../partials/product_form', {locals: {product: product}})
+    

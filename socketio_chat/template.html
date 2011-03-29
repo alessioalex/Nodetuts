@@ -1,0 +1,78 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+  <head>
+    <title>Chat</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        var entry_el = $('#entry');
+        var socket = new io.Socket('localhost', {port: 4000});
+        socket.connect();
+        //console.log('connecting...');
+        socket.on('connect', function() {
+          //console.log('connect');
+        });
+        socket.on('message', function(message) {
+          var data = message.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+          $('#log ul').append('<li>' + data + '</li>');          
+          window.scrollBy(0, 1000000000000000);
+          entry_el.focus();
+        });
+        
+        entry_el.keypress(function(event) {
+          if (event.keyCode != 13) return;
+          var msg = entry_el.attr('value');
+          if (msg) {
+            socket.send(msg);
+            entry_el.attr('value', '');
+          }
+        });
+        
+      });
+    </script>
+    <style type="text/css">
+      body {
+        background-color: #666;
+        color: fff;
+        font-size: 14px;
+        margin: 0;
+        padding: 0;
+        font-family: Helvetica, Arial, Sans-Serif;
+      }
+      #log {
+        margin-bottom: 100px;
+        width: 100%;
+      }
+      #log ul {
+        padding: 0;
+        margin: 0;
+      }
+      #log ul li {
+        list-style-type: none;
+      }
+      #console {
+        background-color: black;
+        color: white;
+        border-top:1px solid white;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        font-size: 18px;
+      }
+      #console input {
+        width: 100%;
+        background-color: inherit;
+        color: inherit;
+        font-size: inherit;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Chat</h1>
+    <div id="log"><ul></ul></div>
+    <div id="console">
+      <input type="text" id="entry" />
+    </div>
+  </body>
+</html>

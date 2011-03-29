@@ -1,0 +1,9 @@
+h2= product.name
+p= product.description
+p Price: #{product.price}
+p
+  a(href='/products/' + product.id) Details
+- if(product.photo)
+  p
+    img(src=product.photo)
+
