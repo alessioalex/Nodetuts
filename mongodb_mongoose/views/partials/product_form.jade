@@ -1,0 +1,20 @@
+p
+  label(for='product_name') Name:
+p
+  input(type='text', id='product_name', name='product[name]', value=product.name)
+p
+  label(for='product_description') Description
+p
+  textarea(id='product_description', name='product[description]')= product.description
+p
+  label(for='product_price') Price:
+p
+  input(type='text', id='product_price', name='product[price]', value=product.price)
+p
+  label(for='product_photo') Photo:
+p
+  select(id='product_photo', name='product[photo]')
+    - each photo in photos
+      option(value=photo, selected=(product.photo == photo))= photo
+p
+  input(type='submit')
