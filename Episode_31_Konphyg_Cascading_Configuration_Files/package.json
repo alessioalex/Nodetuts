@@ -1,0 +1,9 @@
+{
+  "name": "NodeTuts_ep_31",
+  "version": "0.1.0",
+  "description": "Episode 31 of Node Tuts",
+  "author": "Pedro Texeira",
+  "dependencies": {
+    "konphyg": "1.0.x"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "host"       : "localhost",
+  "port"       : 3000,
+  "auth"       : {
+    "username"        : "pedro",
+    "password"        : "my_password",
+    "connection_pool" : "10"
+  },
+  "database"   : "mydb"
+}

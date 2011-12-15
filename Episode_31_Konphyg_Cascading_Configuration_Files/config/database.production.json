@@ -1,0 +1,6 @@
+{
+  "host"       : "mydbhost.acme.com",
+  "auth"       : {
+    "password" : "askdjhskjhdf"
+  }
+}
