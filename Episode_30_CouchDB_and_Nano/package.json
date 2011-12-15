@@ -1,0 +1,9 @@
+{
+  "name": "NodeTuts_ep_30",
+  "version": "0.1.0",
+  "description": "Episode 30 of Node Tuts",
+  "author": "Pedro Texeira",
+  "dependencies": {
+    "nano": "*"
+  }
+}
